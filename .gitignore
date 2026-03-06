@@ -205,3 +205,8 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# Project data files
+data/inbox/*.parquet
+data/outbox/*.parquet
+state/manifest.json
