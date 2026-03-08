@@ -1,85 +1,86 @@
 # big-data-management-2026
 
-Big Data Management – Project 1
-Taxi Trip Data ETL Pipeline using Apache Spark
+# Big Data Management – Project 1  
+## Taxi Trip Data ETL Pipeline using Apache Spark
 
-Student: Buland Kumar Pradhan
-Course: Big Data Management 2026
-Institution: University of Tartu
+**Student:** Buland Kumar Pradhan  
+**Course:** Big Data Management 2026  
+**Institution:** University of Tartu  
 
-Overview
+# Overview
 
-This project implements a data engineering pipeline using Apache Spark to process New York City taxi trip data. The pipeline ingests raw taxi trip datasets, performs data cleaning and transformations, enriches the data using taxi zone metadata, and stores the processed dataset in Parquet format for efficient analytical queries.
+This project implements a data engineering pipeline using **Apache Spark** to process New York City taxi trip data. The pipeline ingests raw taxi trip datasets, performs data cleaning and transformations, enriches the data using taxi zone metadata, and stores the processed dataset in **Parquet format** for efficient analytical queries.
 
-The pipeline simulates a real-world incremental ETL workflow, where new data files arrive in an inbox directory and are processed only once. A manifest file tracks previously processed files to prevent duplicate processing.
+The pipeline simulates a **real-world incremental ETL workflow**, where new data files arrive in an inbox directory and are processed only once. A **manifest file** tracks previously processed files to prevent duplicate processing.
 
-The final dataset contains cleaned and enriched taxi trip records ready for analysis.
+The final dataset contains **cleaned and enriched taxi trip records** ready for analysis.
 
-Project Structure
+
+# Project Structure
+
 project1/
 │
 ├── data/
-│   ├── inbox/
-│   │   ├── yellow_tripdata_2025-01.parquet
-│   │   ├── yellow_tripdata_2025-02.parquet
-│   │
-│   ├── outbox/
-│   │   └── trips_enriched.parquet
-│   │
-│   └── taxi_zone_lookup.parquet
+│ ├── inbox/
+│ │ ├── yellow_tripdata_2025-01.parquet
+│ │ ├── yellow_tripdata_2025-02.parquet
+│ │
+│ ├── outbox/
+│ │ └── trips_enriched.parquet
+│ │
+│ └── taxi_zone_lookup.parquet
 │
 ├── state/
-│   └── manifest.json
+│ └── manifest.json
 │
 ├── Project1.ipynb
-│
 ├── .gitignore
-│
 └── README.md
-Description
-Folder/File	Description
-data/inbox	Raw taxi trip datasets
-data/outbox	Final processed dataset
-taxi_zone_lookup.parquet	Taxi zone lookup dataset
-state/manifest.json	Tracks processed files
-Project1.ipynb	Main ETL pipeline implementation
-.gitignore	Prevents large datasets from being pushed to Git
-Dataset
 
-The project uses NYC Yellow Taxi trip data, which contains information about taxi rides including pickup and drop-off locations, passenger counts, trip distances, and timestamps.
+
+### Description
+
+| Folder/File | Description |
+|---|---|
+| `data/inbox` | Raw taxi trip datasets |
+| `data/outbox` | Final processed dataset |
+| `taxi_zone_lookup.parquet` | Taxi zone lookup dataset |
+| `state/manifest.json` | Tracks processed files |
+| `Project1.ipynb` | Main ETL pipeline implementation |
+| `.gitignore` | Prevents large datasets from being pushed to Git |
+
+# Dataset
+
+The project uses **NYC Yellow Taxi trip data**, which contains information about taxi rides including pickup and drop-off locations, passenger counts, trip distances, and timestamps.
 
 Each trip record contains attributes such as:
 
-pickup and drop-off timestamps
+- pickup and drop-off timestamps  
+- passenger count  
+- pickup and drop-off location IDs  
+- trip distance  
+- fare information  
 
-passenger count
+A **Taxi Zone Lookup dataset** is used to enrich taxi trips with additional metadata such as:
 
-pickup and drop-off location IDs
+- borough  
+- zone name  
+- service area  
 
-trip distance
-
-fare information
-
-A Taxi Zone Lookup dataset is used to enrich taxi trips with additional metadata such as:
-
-borough
-
-zone name
-
-service area
-
-ETL Pipeline Architecture
+# ETL Pipeline Architecture
 
 The pipeline consists of several stages.
 
-1. File Discovery
+# 1. File Discovery
 
-The pipeline scans the inbox directory and identifies available .parquet files.
+The pipeline scans the **inbox directory** and identifies available `.parquet` files.
 
 Example logic:
 
+```python
 list_parquet_files(INBOX_DIR)
-2. Incremental Processing
+
+# 2. Incremental Processing
 
 To avoid reprocessing previously ingested files, the pipeline maintains a manifest file:
 
@@ -196,7 +197,7 @@ Final Output
 
 The final processed dataset contains:
 
-Total rows: 6,951,037
+Total rows: 6951037
 
 These rows represent cleaned and enriched taxi trip records ready for analysis.
 
@@ -240,11 +241,13 @@ Runtime: 1.03 seconds
 
 Reducing shuffle partitions significantly improved execution performance.
 
-Performance Comparison
-Run	Files Processed	Runtime
-Baseline	2	3.7 s
-Caching	2	24.09 s
-Reduced Shuffle Partitions	2	1.03 s
+Performance Comparision
+
+| Run                        | Files Processed | Runtime       |
+| -------------------------- | --------------- | ------------- |
+| Baseline                   | 2               | 3.7 seconds   |
+| DataFrame Cache            | 2               | 24.09 seconds |
+| Reduced Shuffle Partitions | 2               | 1.03 seconds  |
 
 Reducing shuffle partitions improved runtime by approximately 72% compared to the baseline.
 
