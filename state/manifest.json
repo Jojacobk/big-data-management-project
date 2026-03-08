@@ -1,10 +1,12 @@
 {
   "processed_files": {
     "yellow_tripdata_2025-01.parquet": {
-      "processed_at": "2026-03-08T07:31:08.831650+00:00"
+      "processed_at": "2026-03-08 21:10:56.181623",
+      "rows_written": 7052552
     },
     "yellow_tripdata_2025-02.parquet": {
-      "processed_at": "2026-03-08T07:31:08.831650+00:00"
+      "processed_at": "2026-03-08 21:10:56.181640",
+      "rows_written": 7052552
     }
   }
 }
