@@ -1,7 +1,7 @@
 # NYC Taxi Incremental ETL — BDM Project 1
 
 **University of Tartu · Big Data Management · 2026**  
-**Group member:** Joseph Jacob Kulathinal
+**Group member:** Joseph Jacob Kulathinal, Buland Kumar Pradan
 
 ---
 
