@@ -1,0 +1,24 @@
+{
+  "processed_files": [
+    {
+      "filename": "yellow_tripdata_2025-01.parquet",
+      "file_size_bytes": 59158238,
+      "row_count_raw": 3475226,
+      "row_count_after_clean": 3253310,
+      "row_count_after_dedup": 3253111,
+      "imputed_passenger_count": 436945,
+      "global_median_used": 1,
+      "processed_at": "2026-03-07T11:41:34.191131+00:00"
+    },
+    {
+      "filename": "yellow_tripdata_2025-02.parquet",
+      "file_size_bytes": 60343086,
+      "row_count_raw": 3577543,
+      "row_count_after_clean": 3307153,
+      "row_count_after_dedup": 3306914,
+      "imputed_passenger_count": 649507,
+      "global_median_used": 1,
+      "processed_at": "2026-03-07T11:41:34.191131+00:00"
+    }
+  ]
+}
