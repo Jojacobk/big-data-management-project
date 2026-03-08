@@ -144,7 +144,7 @@ The global median of 1 reflects that the majority of valid NYC taxi trips carry 
 
 **Screenshot 1 — Stages overview (final optimised run)**
 
-![Stages overview](docs/screenshots/Optimisation%202%20run/1.png)
+![Stages overview](docs/screenshots/Optimisation%202%20run/2.png)
 
 Shows completed stages with durations. Top stages by shuffle read visible.
 
@@ -153,6 +153,8 @@ Shows completed stages with durations. Top stages by shuffle read visible.
 ![Dedup stage shuffle metrics](docs/screenshots/Optimisation%202%20run/3.png)
 
 `dropDuplicates` stage on the merged 6,560,025-row dataset: shuffle read and write metrics confirm the dedup cross-partition shuffle. Total task time and task count visible.
+
+More screenshots in `docs/screenshots/Optimisation 2 run/`
 
 ---
 
